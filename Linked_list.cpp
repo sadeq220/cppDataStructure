@@ -41,6 +41,9 @@ public:
     {
         return head;
     }
+    node** getActualHead(){
+    return &head;
+    }
 
     static void display(node *head)
     {
@@ -104,7 +107,7 @@ public:
   static void reverse(node* rhead,node **FinalHead){
     if( rhead->next == NULL ){
 	   (*FinalHead)->next= NULL;
-	  *FinalHead = rhead;
+	  (*FinalHead) = rhead;
 	 cout<<rhead->data<<(*FinalHead)->data<<endl;
 	
     }else{
@@ -144,8 +147,9 @@ int main()
     linked_list::concatenate(a.gethead(),b.gethead());
     linked_list::display(a.gethead());
    cout<<endl; 
-   node* temp=a.gethead();
-    linked_list::reverse(a.gethead(),&temp);
+    // node* temp=a.gethead();
+    node **temp=a.getActualHead();
+    linked_list::reverse(a.gethead(),temp);
     // a.reverse(a.gethead());
     linked_list::display(a.gethead());
     return 0;
