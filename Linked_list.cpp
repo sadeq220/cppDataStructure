@@ -133,17 +133,23 @@ public:
         * fix the head pointer *
         return rest;
     } */
+  void callByReference(int &x1,int &x2){
+  cout<<x1<<x2<<endl;
+  head->data=x1;
+  }
 };
 
 int main()
 {
-
+	int q,w;
+	q=11;w=22;
     linked_list a;
     a.add_node(1);
     a.add_node(2);
     linked_list b;
     b.add_node(3);
     b.add_node(4);
+    a.callByReference(q,w);
     linked_list::concatenate(a.gethead(),b.gethead());
     linked_list::display(a.gethead());
    cout<<endl; 
